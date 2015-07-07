@@ -1,25 +1,24 @@
+"use strict";
+
 // es5 polyfills, powered by es5-shim
 require("es5-shim")
-
 // es6 polyfills, powered by babel
-require("babel/polyfill")
+require("babel/register")
 
 var Promise = require('es6-promise').Promise
-// just Node?
-// var fetch = require('node-fetch')
-// Browserify?
-// require('whatwg-fetch') //--> not a typo, don't store as a var
 
-// other stuff that we don't really use in our own code
-// var Pace = require("../bower_components/pace/pace.js")
+var Pace = require("../bower_components/pace/pace.js")
 
-// require your own libraries, too!
-// var Router = require('./app.js')
 
-// window.addEventListener('load', app)
+//var AppRouter = require('./app0.js')
+//var AppRouter = require('./app1.js')
+//var AppRouter = require('./app2.js')
+var AppRouter = require('./yelp.js')
 
-// function app() {
-    // start app
-    // new Router()
-// }
 
+window.addEventListener('load', app)
+
+function app() {
+	console.log(AppRouter)
+	var startApp = new AppRouter()
+}

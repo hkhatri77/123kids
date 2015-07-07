@@ -1,7 +1,5 @@
-
 @import "../bower_components/normalize-css/normalize.css";
 @import "../bower_components/typeplate-starter-kit/css/typeplate.css";
-
 /**
  * BOX-SIZING
  */
@@ -11,7 +9,6 @@
 *:after {
     box-sizing: border-box;
 }
-
 /**
  * GRIDS
  */
@@ -28,7 +25,8 @@
     }
 }
 
-@define-mixin grid_r $col, $width {
+@define-mixin grid_r $col,
+$width {
     @media only screen and (min-width: $(width)px) {
         .grid-$(col)-$(width) {
             & > * {
@@ -49,15 +47,22 @@
 }
 
 @mixin grid 2 {}
+
 @mixin grid 4 {}
+
 @mixin grid 6 {}
 
-@mixin grid_r 2, 400 {}
-@mixin grid_r 2, 800 {}
+@mixin grid_r 2,
+400 {}
 
-@mixin grid_r 4, 400 {}
-@mixin grid_r 4, 800 {}
+@mixin grid_r 2,
+800 {}
 
+@mixin grid_r 4,
+400 {}
+
+@mixin grid_r 4,
+800 {}
 /**
  * PACE (automatic pre-loader thingy)
  */
@@ -95,3 +100,233 @@ img {
 /**
  * YOUR CODE HERE
  */
+
+body {
+    background-color: #E6F9F8;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    box-shadow: 0px 0px 7px #d4d4d4;
+}
+
+#wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.rot-banner {
+    float: left;
+    width: 70%;
+    height: 100px;
+    background-color: grey;
+    margin: 1%;
+}
+
+.group-ad {
+    float: left;
+    width: 27%;
+    height: 100px;
+    background-color: grey;
+    margin: 1%;
+    margin-left: 0px;
+}
+
+.upcoming-data-ticker {
+    float: left;
+    width: 100%;
+    height: 100px;
+    background-color: grey;
+    margin: 1%;
+}
+
+.ham-icon {
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    position: absolute;
+    display: none;
+}
+
+#icon-div {
+    background-color: white;
+    height: 60px;
+    width: 65px;
+    position: absolute;
+}
+
+.ham-menu {
+    width: 215px;
+    height: 400px;
+    background-color: white;
+    position: absolute;
+    transform: translateY(60px);
+}
+
+.wrapper {
+    .ham-menu {
+        display: none;
+    }
+}
+
+.wrapper:hover {
+    .ham-menu {
+        display: block;
+        transition: 2s
+    }
+}
+
+.user-info-wrap {
+    background-color: pink;
+    width: 30%;
+    height: 500px;
+    float: left;
+}
+
+.user-act {
+    background-color: pink;
+    width: 67%;
+    height: 500px;
+    float: left;
+    margin-left: 3%;
+    border: 1px solid grey;
+}
+
+.user-img {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 3%;
+    border: 1px solid grey;
+}
+
+.user-det {}
+
+.user-pals {
+    width: 100%;
+    height: 300px;
+    border: 1px solid grey;
+}
+
+.center {
+    background-color: green;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 8%;
+}
+
+.user-img {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+@media only screen and (max-width: 800px) {
+    .rot-banner {
+        float: left;
+        width: 100%;
+        height: 100px;
+        background-color: grey;
+        margin: 1%;
+    }
+    .group-ad {
+        float: left;
+        width: 27%;
+        height: 100px;
+        background-color: grey;
+        margin: 1%;
+    }
+    .upcoming-data-ticker {
+        float: left;
+        width: 70%;
+        height: 100px;
+        background-color: grey;
+        margin: 1%;
+        margin-left: 0px;
+    }
+    .ham-icon {
+        display: block;
+    }
+    .subheader img {
+        transform: translateY(-55px);
+        width: 100px;
+        margin-left: 38%;
+    }
+    .user-info-wrap {
+        background-color: pink;
+        width: 100%;
+        height: 500px;
+        float: left;
+    }
+    .user-act {
+        background-color: pink;
+        width: 100%;
+        height: 500px;
+        float: left;
+        border: 1px solid grey;
+        margin-top: 3%;
+        margin-left: 0px;
+    }
+    .user-img {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 3%;
+        border: 1px solid grey;
+    }
+    .user-det {
+        float: left;
+        margin-left: 3%;
+    }
+    .user-pals {
+        width: 100%;
+        height: 300px;
+        border: 1px solid grey;
+        clear: both;
+    }
+    .center {
+        background-color: green;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 8%;
+    }
+    .user-img {
+        position: relative;
+        height: 250px;
+        float: left;
+    }
+}
+
+.square-box{
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+    background: #4679BD;
+}
+.square-box:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.square-content{
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: white;
+}
+.square-content div {
+   display: table;
+   width: 100%;
+   height: 100%;
+}
+.square-content span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: white
+}
