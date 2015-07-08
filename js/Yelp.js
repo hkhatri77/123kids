@@ -1,76 +1,38 @@
-var $ = require('jquery'),
-	_ = require('underscore'),
-	Backbone = require('backbone');
+  var Oauth = { 
+    consumerKey: 'Dcmz07el7YmH2SgHfCRwdQ', 
+    consumerSecret: 'b3xadmEYI1yQgixG1yN5BuTF5XQ',
+    accessToken: 'XgTA-3HCsHUpBn-qeQNF1R-hIa_HgO5s',
+    accessTokenSecret: 'GLF2oOns7-LqsbnAmNqH3SRzE_A',
+  };
 
-Backbone.$ = $
+  var terms = 'food';
+  var near = 'San+Francisco';
 
+  var accessor = {
+    consumerSecret: Oauth.consumerSecret,
+    tokenSecret: Oauth.accessTokenSecret
+  };
 
+  var parameters = [];
+  parameters.push(['term', terms]);
+  parameters.push(['location', near]);
+  parameters.push(['oauth_consumer_key', auth.consumerKey]);
+  parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
+  parameters.push(['oauth_token', auth.accessToken]);
 
+  var message = { 
+    'action': 'http://api.yelp.com/v2/search',
+    'method': 'GET',
+    'parameters': parameters 
+  };
 
-var ApplicationRouter = Backbone.Router.extend({
-	initialize: function() {
-		this.politionsCollection = new LegislatorsCollection();
-		this.homeView = new HomePageView({vCollection: this.politionsCollection});
-		Backbone.history.start();
-	},
+  OAuth.setTimestampAndNonce(message);  
 
-	routes: {
-		'*default': 'showHome'
-	},
+  OAuth.SignatureMethod.sign(message, accessor);
 
-	showHome: function() {
-		console.log(this.homeView)
+  var parameterMap = OAuth.getParameterMap(message.parameters);
+  parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature)
 
-		this.politionsCollection.fetch().then(function(responseData){
-			console.log(responseData)
-			console.log(this.politionsCollection);
-
-			this.homeView.vCollection = this.politionsCollection;
-			this.homeView.render();
-		}.bind(this))
-
-	}
-
-})
-
-var HomePageView = Backbone.View.extend({
-	el: '.container',
-
-	template: function() {
-		var listings = this.vCollection.models[0]
-		
-		return `
-
-		`
-
-	},
-
-	render: function() {
-		this.el.innerHTML = this.template()
-	},
-})
-
-var Listing = Backbone.Model.extend({
-
-})
-
-var ListingCollection = Backbone.Collection.extend({
-	
-	model: Listing,
-
-	key: 'Dcmz07el7YmH2SgHfCRwdQ', 
-	secret: 'b3xadmEYI1yQgixG1yN5BuTF5XQ'
-	token: 'XgTA-3HCsHUpBn-qeQNF1R-hIa_HgO5s'
-	token_secret: 'GLF2oOns7-LqsbnAmNqH3SRzE_A'
-
-	url: function(){
-		return `http://congress.api.sunlightfoundation.com/legislators?apikey=${this.key}`
-	},
-
-	parse: function(yelp) {
-		return yelp.results
-	}
-
-})
-
-export default ApplicationRouter
+  var url = OAuth.addToURL(message.action,parameterMap);
+  var response = UrlFetchApp.fetch(url).getContentText();
+  var responseObject = Utilities.jsonParse(response);
