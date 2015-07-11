@@ -1,38 +1,73 @@
-  var Oauth = { 
-    consumerKey: 'Dcmz07el7YmH2SgHfCRwdQ', 
-    consumerSecret: 'b3xadmEYI1yQgixG1yN5BuTF5XQ',
-    accessToken: 'XgTA-3HCsHUpBn-qeQNF1R-hIa_HgO5s',
-    accessTokenSecret: 'GLF2oOns7-LqsbnAmNqH3SRzE_A',
-  };
+var $ = require('jquery'),
+  _ = require('underscore'),
+  Backbone = require('backbone');
 
-  var terms = 'food';
-  var near = 'San+Francisco';
+Backbone.$ = $
 
-  var accessor = {
-    consumerSecret: Oauth.consumerSecret,
-    tokenSecret: Oauth.accessTokenSecret
-  };
 
-  var parameters = [];
-  parameters.push(['term', terms]);
-  parameters.push(['location', near]);
-  parameters.push(['oauth_consumer_key', auth.consumerKey]);
-  parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
-  parameters.push(['oauth_token', auth.accessToken]);
 
-  var message = { 
-    'action': 'http://api.yelp.com/v2/search',
-    'method': 'GET',
-    'parameters': parameters 
-  };
 
-  OAuth.setTimestampAndNonce(message);  
+var ApplicationRouter = Backbone.Router.extend({
+  initialize: function() {
+    this.ListingCollection = new BusinessCollection();
+    this.homeView = new HomePageView({vCollection: this.ListingCollection});
+    Backbone.history.start();
+  },
 
-  OAuth.SignatureMethod.sign(message, accessor);
+  routes: {
+    '*default': 'showHome'
+  },
 
-  var parameterMap = OAuth.getParameterMap(message.parameters);
-  parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature)
+  showHome: function() {
+    console.log(this.homeView)
 
-  var url = OAuth.addToURL(message.action,parameterMap);
-  var response = UrlFetchApp.fetch(url).getContentText();
-  var responseObject = Utilities.jsonParse(response);
+    this.ListingCollection.fetch().then(function(responseData){
+      console.log(responseData)
+      console.log(this.ListingCollection);
+
+      this.homeView.vCollection = this.ListingCollection;
+      this.homeView.render();
+    }.bind(this))
+
+  }
+
+})
+
+var HomePageView = Backbone.View.extend({
+  el: '.container',
+
+  template: function() {
+    var oneGuy = this.vCollection.models[0]
+    
+    return `
+
+    `
+
+  },
+
+  render: function() {
+    this.el.innerHTML = this.template()
+  },
+})
+
+var Business = Backbone.Model.extend({
+
+})
+
+var BusinessCollection = Backbone.Collection.extend({
+  
+  model: Business,
+
+  UID: 'j1kNkn4Aq3vbUHBmdRHw-w', 
+
+  url: function(){
+    return `http://api.sandbox.yellowapi.com/FindBusiness/?what=Restaurants&where=Toronto&pgLen=5&pg=1&dist=1&fmt=JSON&lang=en&UID=xqtdecnfjw8hpmscrv3jaj8v&apikey=xqtdecnfjw8hpmscrv3jaj8v`
+  },
+
+  parse: function(yelpResponse) {
+    return yelpResponse.results
+  }
+
+})
+
+export default ApplicationRouter

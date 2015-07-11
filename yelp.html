@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./dist/style.css">
+</head>
+
+<body onLoad="doMagic();">
+    <div class="container">
+        yelp
+        <div id="div1"></div>
+    </div>
+    <script type="text/javascript" src="./dist/app-browserify.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    function doMagic()
+    {
+        var yelp = JSON.parse(httpGet("http://localhost:3000/yelp?term=doctors&location=houston"));
+        var obj = yelp.businesses;
+        console.log(yelp);
+        console.log(obj);
+        var tbl=$("<table/>").attr("id","mytable");
+        $("#div1").append(tbl);
+        for(var i=0;i<obj.length;i++)
+        {
+            var tr="<tr>";
+            var td1="<td>"+obj[i]["id"]+"</td>";
+            var td2="<td>"+obj[i]["name"]+"</td>";
+            var td3="<td>"+obj[i]["color"]+"</td></tr>";
+            
+           $("#mytable").append(tr+td1+td2+td3); 
+          
+        }
+
+        alert(yelp);
+    }
+
+    function httpGet(theUrl) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", theUrl, false);
+        xmlHttp.send(null);
+        return xmlHttp.responseText;
+    }
+    </script>
+</body>
+
+</html>
