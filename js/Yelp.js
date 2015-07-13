@@ -1,73 +1,39 @@
-var $ = require('jquery'),
-  _ = require('underscore'),
-  Backbone = require('backbone');
+"use strict";
 
-Backbone.$ = $
+// es5 polyfills, powered by es5-shim
+require("es5-shim")
+// es6 polyfills, powered by babel
+require("babel/register")
+
+var Promise = require('es6-promise').Promise
+var $ = require('jquery')
+var Backbone = require('backbone')
 
 
 
 
-var ApplicationRouter = Backbone.Router.extend({
-  initialize: function() {
-    this.ListingCollection = new BusinessCollection();
-    this.homeView = new HomePageView({vCollection: this.ListingCollection});
-    Backbone.history.start();
-  },
+function doMagic() {
+    var yelp =  JSON.parse(httpGet("http://localhost:3000/yelp?term={term}&location={location}"));
+    var obj = yelp.businesses;
+    var tbl = $("<table/>").attr("id", "mytable");
+    $("#div1").append(tbl);
+    for (var i = 0; i < obj.length; i++) {
+        var tr = "<tr>";
+        var td1 = "<td class='test'>" + obj[i]["name"] + "</td>";
+        var td2 = "<td>" + obj[i]["phone"] + "</td>";
+        var td3 = "<td>" + obj[i]["rating"] + "</td></tr>";
 
-  routes: {
-    '*default': 'showHome'
-  },
+        $("#mytable").append(tr + td1 + td2 + td3);
 
-  showHome: function() {
-    console.log(this.homeView)
+    }
 
-    this.ListingCollection.fetch().then(function(responseData){
-      console.log(responseData)
-      console.log(this.ListingCollection);
+    console.log(yelp);
+}
 
-      this.homeView.vCollection = this.ListingCollection;
-      this.homeView.render();
-    }.bind(this))
+function httpGet(theUrl) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", theUrl, false);
+    xmlHttp.send(null);
+    return xmlHttp.responseText;
+}
 
-  }
-
-})
-
-var HomePageView = Backbone.View.extend({
-  el: '.container',
-
-  template: function() {
-    var oneGuy = this.vCollection.models[0]
-    
-    return `
-
-    `
-
-  },
-
-  render: function() {
-    this.el.innerHTML = this.template()
-  },
-})
-
-var Business = Backbone.Model.extend({
-
-})
-
-var BusinessCollection = Backbone.Collection.extend({
-  
-  model: Business,
-
-  UID: 'j1kNkn4Aq3vbUHBmdRHw-w', 
-
-  url: function(){
-    return `http://api.sandbox.yellowapi.com/FindBusiness/?what=Restaurants&where=Toronto&pgLen=5&pg=1&dist=1&fmt=JSON&lang=en&UID=xqtdecnfjw8hpmscrv3jaj8v&apikey=xqtdecnfjw8hpmscrv3jaj8v`
-  },
-
-  parse: function(yelpResponse) {
-    return yelpResponse.results
-  }
-
-})
-
-export default ApplicationRouter
