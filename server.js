@@ -39,7 +39,6 @@ function startServer() {
     app.set('port', process.argv[3] || process.env.PORT || 3000)
     app.use(express.static(path.join(__dirname, '')))
     app.get('/yelp', function(req, res) {
-        console.log("hello from yelp route!");
 
         var yelp = require("yelp").createClient({
             consumer_key: "Dcmz07el7YmH2SgHfCRwdQ",
@@ -48,20 +47,22 @@ function startServer() {
             token_secret: "GLF2oOns7-LqsbnAmNqH3SRzE_A"
         });
 
+
         // See http://www.yelp.com/developers/documentation/v2/search_api
-        yelp.search({term: "preschool", location: "Houston", sort: "1"}, function(error, data) {
+        
+
+        yelp.search({
+            term: 'food', 
+            location: "Houston", 
+            sort: "1"
+
+        }, function(error, data) {
             console.log(error);
             console.log(data);
             res.send(200, data);
             });
 
-        // See http://www.yelp.com/developers/documentation/v2/business
-        /*yelp.business("yelp-san-francisco", function(error, data) {
-          console.log(error);
-          console.log(data);
-        });*/
     });
-
 
 
     // SOME SECURITY STUFF

@@ -9,9 +9,6 @@ var Promise = require('es6-promise').Promise
 var $ = require('jquery')
 var Backbone = require('backbone')
 
-
-
-
 function doMagic() {
     var yelp =  JSON.parse(httpGet("http://localhost:3000/yelp?term={term}&location={location}"));
     var obj = yelp.businesses;
@@ -20,8 +17,8 @@ function doMagic() {
     for (var i = 0; i < obj.length; i++) {
         var tr = "<tr>";
         var td1 = "<td class='test'>" + obj[i]["name"] + "</td>";
-        var td2 = "<td>" + obj[i]["phone"] + "</td>";
-        var td3 = "<td>" + obj[i]["rating"] + "</td></tr>";
+        var td2 = "<td>" + obj[i]["display_phone"] + "</td>";
+        var td3 = "<td>" + obj[i]["snippet_text"] + "</td></tr>";
 
         $("#mytable").append(tr + td1 + td2 + td3);
 
