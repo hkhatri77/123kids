@@ -10,13 +10,20 @@
 <body>
     <div class="container">
         <div class="header">
-        <input type="search" placeholder="Search">
-            <ul>
+            <button><img src="./images/magnifying47.png"></button>
+            <input type="search" placeholder="Search">
+            <ul class="nav-menu">
                 <li>123Parenting</li>
                 <li>Places</li>
                 <li>Classes</li>
                 <li>Events & Camps</li>
                 <li>Schools</li>
+            </ul>
+            <ul class="sub-nav-menu">
+                <li class="left-margin">Crafts</li>
+                <li>Recipes</li>
+                <li>Printables</li>
+                <li>Activities</li>
             </ul>
             <div class="wrapper">
                 <div id="icon-div"><img class="ham-icon" src="./images/menu48.png"></div>
@@ -33,16 +40,19 @@
             </ul>
             <img src="./images/unnamed.png">
         </div>
-
         <div class="line"></div>
         <div class="line"></div>
-        
         <div id="wrapper">
-            <div class="rot-banner"></div>
+            <div class="rot-banner"><img src="./images/banner5.jpg"></div>
             <div class="group-ad"></div>
             <div class="upcoming-data-ticker"></div>
         </div>
+        <div class="footer"></div>
     </div>
+    <script src="//www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        Parse.initialize(`wfrA4zrEF3DpzOzMrCWixURXrZ7IN5SYRg6mu7Pz`, `acq05lAHzclhv0qwgSHFqXzC6vYnRk2az5YaqYAy`)
+    </script>
     <script type="text/javascript" src="./dist/app-browserify.js"></script>
 </body>
 

@@ -49,20 +49,41 @@ function startServer() {
 
 
         // See http://www.yelp.com/developers/documentation/v2/search_api
-        
+
 
         yelp.search({
-            term: 'food', 
-            location: "Houston", 
+            term: req.param("term"),
+            location: "Houston",
             sort: "1"
 
         }, function(error, data) {
             console.log(error);
             console.log(data);
             res.send(200, data);
-            });
+        });
 
     });
+
+    app.get('/eventful', function(req, res) {
+        http.get("http://api.eventful.com/json/events/search?app_key=S2JXWfF9x67LXtpR&q=" + req.param("q") + "&location=" + req.param("location"), function(response) {
+            console.log("Got response: " + response.statusCode);
+            var ourdata = '';
+            response.on('data', function(data) {
+                response.setEncoding('utf8');
+                console.log("Data: ");
+                console.log(data);
+                ourdata += data;
+            });
+            response.on('end', function() {
+                res.send(200, ourdata);
+            });
+        }).on('error', function(e) {
+            console.log("Got error: " + e.message);
+            res.send(500, e.message);
+        });
+
+    });
+
 
 
     // SOME SECURITY STUFF

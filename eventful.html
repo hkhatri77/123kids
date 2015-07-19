@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./dist/style.css">
+</head>
+
+<body onLoad="doMagic();">
+    <div class="container">
+        <div id="div1">
+        <td><img class="test" src=""></td>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    function doMagic() {
+    var eventful =  JSON.parse(httpGet("http://localhost:3000/eventful?q={doctors}"));
+    console.log('Eventful: ');
+    console.log(eventful);
+    var obj = eventful.events.event;
+    var tbl = $("<table/>").attr("id", "mytable");
+    $("#div1").append(tbl);
+    for (var i = 0; i < obj.length; i++) {
+        var tr = "<tr>";
+        var td1 = "<td class='test'>" + obj[i]["title"] + "</td>";
+        var td2 = "<td>" + obj[i]["location"] + "</td>";
+        var tdimg = "<td><a href='" + obj[i]["url"] + "'></a></td>";
+        var td3 = "<td>" + obj[i]["description"] + "</td></tr>";
+
+        $("#mytable").append(tr + td1 + td2 + tdimg + td3);
+
+    }
+}
+
+function httpGet(theUrl) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", theUrl, false);
+    xmlHttp.send(null);
+    return xmlHttp.responseText;
+}
+
+    </script>
+</body>
+
+</html>

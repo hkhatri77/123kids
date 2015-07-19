@@ -10,7 +10,7 @@ var $ = require('jquery')
 var Backbone = require('backbone')
 
 function doMagic() {
-    var yelp =  JSON.parse(httpGet("http://localhost:3000/yelp?term={term}&location={location}"));
+    var yelp =  JSON.parse(httpGet("http://localhost:3000/yelp?term={food}&location={location}"));
     var obj = yelp.businesses;
     var tbl = $("<table/>").attr("id", "mytable");
     $("#div1").append(tbl);

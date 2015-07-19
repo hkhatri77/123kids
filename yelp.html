@@ -18,6 +18,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript">
 
+    function doMagic() {
+    var yelp =  JSON.parse(httpGet("http://localhost:3000/yelp?term={doctors}&location={location}"));
+    var obj = yelp.businesses;
+    var tbl = $("<table/>").attr("id", "mytable");
+    $("#div1").append(tbl);
+    for (var i = 0; i < obj.length; i++) {
+        var tr = "<tr>";
+        var td1 = "<td class='test'>" + obj[i]["name"] + "</td>";
+        var td2 = "<td>" + obj[i]["display_phone"] + "</td>";
+        var tdimg = "<td><img style='width:400;height:400' src='" + obj[i]["image_url"] + "'></img></td>";
+        var td3 = "<td>" + obj[i]["snippet_text"] + "</td></tr>";
+
+        $("#mytable").append(tr + td1 + td2 + tdimg + td3);
+
+    }
+
+    console.log(yelp);
+}
+
+function httpGet(theUrl) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", theUrl, false);
+    xmlHttp.send(null);
+    return xmlHttp.responseText;
+}
+
     </script>
 </body>
 
