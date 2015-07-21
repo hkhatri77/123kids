@@ -123,7 +123,7 @@ body {
     height: 50px;
     background-color: white;
     box-shadow: 0px 0px 7px #d4d4d4;
-    margin-top: -18px;
+    margin-top: 0px;
     input {
         float: right;
         margin-top: 10px;
@@ -138,7 +138,7 @@ body {
     }
     .nav-menu {
         margin-top: 0px;
-        li {
+        div {
             list-style: none;
             float: right;
             font-family: Arial;
@@ -159,6 +159,84 @@ body {
         img {
             filter: invert(70%);
         }
+    }
+}
+
+#schools-wrapper {
+    #schools-icon {
+        height: 40px;
+        margin-top: 0px;
+        background-color: white;
+        margin: 0px;
+    }
+    #schools-submenu {
+        width: 215px;
+        height: 200px;
+        background-color: white;
+        position: absolute;
+        transform: translateY(23px);
+        display: none;
+        li {
+            list-style-type: none;
+        }
+    }
+}
+
+#schools-wrapper:hover {
+    #schools-submenu {
+        display: block;
+    }
+}
+
+#places-wrapper {
+    #places-icon {
+        height: 40px;
+        margin-top: 0px;
+        background-color: white;
+        margin: 0px;
+    }
+    #places-submenu {
+        width: 215px;
+        height: 200px;
+        background-color: white;
+        position: absolute;
+        transform: translateY(23px);
+        display: none;
+        li {
+            list-style-type: none;
+        }
+    }
+}
+
+#places-wrapper:hover {
+    #places-submenu {
+        display: block;
+    }
+}
+
+#events-wrapper {
+    #events-icon {
+        height: 40px;
+        margin-top: 0px;
+        background-color: white;
+        margin: 0px;
+    }
+    #events-submenu {
+        width: 215px;
+        height: 200px;
+        background-color: white;
+        position: absolute;
+        transform: translateY(23px);
+        display: none;
+        li {
+            list-style-type: none;
+        }
+    }
+}
+
+#events-wrapper:hover {
+    #events-submenu {
+        display: block;
     }
 }
 
@@ -211,19 +289,6 @@ a {
     float: right;
 }
 
-.schools-submenu {
-    width: 215px;
-    height: 400px;
-    background-color: white;
-    position: absolute;
-    transform: translate(-4px, 12px);
-    z-index: 1;
-    opacity: 0;
-    .schools-submenu:hover {
-        opacity: 1;
-    }
-}
-
 .group-ad {
     float: left;
     width: 25%;
@@ -263,7 +328,7 @@ a {
     height: 400px;
     background-color: white;
     position: absolute;
-    transform: translateY(60px);
+    transform: translateY(50px);
 }
 
 .wrapper {
@@ -407,8 +472,9 @@ a {
         }
     }
     .header {
+        margin-top: -18px;
         .nav-menu {
-            li {
+            div {
                 display: none;
             }
         }
@@ -445,7 +511,7 @@ a {
 @media only screen and (max-width: 600px) {
     .sub-nav-menu {
         li {
-            display: none;
+            display: block;
         }
     }
     .subheader img {
@@ -455,12 +521,10 @@ a {
 
 table {
     width: 88%;
-     margin-left: 6%;
-     margin-top: 10px;
+    margin-left: 6%;
+    margin-top: 10px;
 }
 
 tr {
     border-bottom: 1px solid #f91a6b;
-    
-
 }
