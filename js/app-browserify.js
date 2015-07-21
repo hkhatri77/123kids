@@ -133,8 +133,6 @@ class EventView extends Component {
 		return (<div>
 			<HomeLogoutView />
 			<Toolbar />
-			<UserMenu/>
-
 
 			<div id="new-event">
 			<form onSubmit={(e) => this._NewEvent(e)}> 
