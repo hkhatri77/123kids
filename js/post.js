@@ -5,7 +5,7 @@ tags: input value from tags input
 
 **/
 
-export const PostStory = Parse.Object.extend({
+export const PostEvent = Parse.Object.extend({
 	className: 'Post',
 
 	defaults: {
@@ -20,6 +20,6 @@ export const PostStory = Parse.Object.extend({
 	}
 })
 
-export const PostStoryList = Parse.Collection.extend({
-	model: PostStory
+export const PostEventList = Parse.Collection.extend({
+	model: PostEvent
 })

@@ -17,7 +17,7 @@
     <script type="text/javascript">
 
     function doMagic() {
-    var eventful =  JSON.parse(httpGet("http://localhost:3000/eventful?q={doctors}"));
+    var eventful =  JSON.parse(httpGet("http://localhost:3000/eventful?q={family}"));
     console.log('Eventful: ');
     console.log(eventful);
     var obj = eventful.events.event;

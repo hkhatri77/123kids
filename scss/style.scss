@@ -1,5 +1,6 @@
 @import "../bower_components/normalize-css/normalize.css";
 @import "../bower_components/typeplate-starter-kit/css/typeplate.css";
+
 /**
  * BOX-SIZING
  */
@@ -9,6 +10,8 @@
 *:after {
     box-sizing: border-box;
 }
+
+
 /**
  * GRIDS
  */
@@ -63,6 +66,8 @@ $width {
 
 @mixin grid_r 4,
 800 {}
+
+
 /**
  * PACE (automatic pre-loader thingy)
  */
@@ -90,6 +95,8 @@ $width {
 .pace-active {
     opacity: 1;
 }
+
+
 /**
  * GENERAL
  */
@@ -97,6 +104,8 @@ $width {
 img {
     max-width: 100%;
 }
+
+
 /**
  * YOUR CODE HERE
  */
@@ -195,6 +204,23 @@ body {
         width: 100%;
         height: 100%;
         margin-bottom: -9px;
+    }
+}
+
+a {
+    float: right;
+}
+
+.schools-submenu {
+    width: 215px;
+    height: 400px;
+    background-color: white;
+    position: absolute;
+    transform: translate(-4px, 12px);
+    z-index: 1;
+    opacity: 0;
+    .schools-submenu:hover {
+        opacity: 1;
     }
 }
 
@@ -300,7 +326,7 @@ body {
     display: none;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 860px) {
     .rot-banner {
         float: left;
         width: 100%;
@@ -425,4 +451,16 @@ body {
     .subheader img {
         margin-left: 38%;
     }
+}
+
+table {
+    width: 88%;
+     margin-left: 6%;
+     margin-top: 10px;
+}
+
+tr {
+    border-bottom: 1px solid #f91a6b;
+    
+
 }

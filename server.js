@@ -65,7 +65,7 @@ function startServer() {
     });
 
     app.get('/eventful', function(req, res) {
-        http.get("http://api.eventful.com/json/events/search?app_key=S2JXWfF9x67LXtpR&q=" + req.param("q") + "&location=" + req.param("location"), function(response) {
+        http.get("http://api.eventful.com/json/events/search?app_key=S2JXWfF9x67LXtpR&q=family", function(response) {
             console.log("Got response: " + response.statusCode);
             var ourdata = '';
             response.on('data', function(data) {
