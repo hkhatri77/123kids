@@ -36,27 +36,12 @@ _logOut (e) {
 	
 
 	render(){
-		return(<div id="wrapper">
-        <div className="header">
-            <div className="logo"></div>
-            <form >
-            <button id="button-right" onClick={(e) => this._logOut(e) }> Logout </button>
-            <button id="button-right">Write a story</button>
-            <input id="search-input" type="text" ref=""/>
-            <button id="search-icon"></button>
-           	
+		return(<div>
+			<form>
+            	<button id="button-right" onClick={(e) => this._logOut(e) }> Logout </button>
 			</form>
             
-        </div>
-        <div className="subheader"></div>
-			<div>
-				<svgIcon />
-			</div>
-			
-			
-			
-
-		</div>)
+        </div>)
 	}
 }
 
@@ -146,6 +131,7 @@ class EventView extends Component {
 		console.log(postedEvents)
 		console.log(postedEvents.map((model) => model.toJSON()))
 		return (<div>
+			<HomeLogoutView />
 			<Toolbar />
 
 			<div id="new-event">
@@ -162,7 +148,8 @@ class EventView extends Component {
              <hr />
 			<ul>
 				{postedEvents.map((model) => <PostView existingStories={model} />)}
-			</ul>	
+			</ul>
+
 		</div>)
 	}
 }
@@ -193,12 +180,180 @@ class PostView extends Component{
 				<p ref='tags'> {model.get('tags')} </p>
 				
 			</li>
-			<div className="floating-logo"><p>M</p></div>
 			</div>
 			
 		)
 	}
 }
+
+class HomePageView extends Component{
+	constructor(props){
+		super(props)
+		this.state = { 
+
+		}
+	}
+	render () {
+		return(
+			<div>
+				<NavView/>
+				<UserMenu/>
+				<HomeBody/>
+			</div>
+			)
+	}
+}
+
+
+class NavView extends Component {
+	constructor(props){
+		super(props)
+		this.state = { 
+
+		}
+	}
+	render () {
+		return(
+			<div>
+				<div className="header">
+            <div><a href="http://localhost:3000/#login">login</a></div>
+            <button><img src="./images/magnifying47.png"/></button>
+            <input type="search" placeholder="Search"/>
+            <div className="nav-menu">
+                <div>123Parenting</div>
+                <div id="places-wrapper">
+                    <div id="places-icon">
+                        <p>Places</p>
+                    </div>
+                    <ul id="places-submenu">
+                        <li><a href="http://localhost:3000/templates/apparel&accessories.html">Apparel & Accessories</a></li>
+                        <li><a href="http://localhost:3000/templates/babyshops.html">Baby Shops</a></li>
+                        <li><a href="http://localhost:3000/templates/playareas.html">Play Areas</a></li>
+                        <li><a href="http://localhost:3000/templates/libraries&bookstores.html">Libraries & Book Stores</a></li>
+                        <li><a href="http://localhost:3000/templates/museums.html">Museums</a></li>
+                        <li><a href="http://localhost:3000/templates/amusementparks.html">Amusement Parks</a></li>
+                    </ul>
+                </div>
+                <div>Classes</div>
+                <div id="events-wrapper">
+                    <div id="events-icon">
+                        <p>Events & Camps</p>
+                    </div>
+                    <ul id="events-submenu">
+                        <li><a href="http://localhost:3000/templates/workshops&camps.html">Workshops & Camps</a></li>
+                            <li><a href="http://localhost:3000/templates/sportsevents.html">Sports Events</a></li>
+                            <li><a href="http://localhost:3000/templates/arts&theatre.html">Arts & Theatre</a></li>
+                    </ul>
+                </div>
+                <div id="schools-wrapper">
+                    <div id="schools-icon">
+                        <p>Schools</p>
+                    </div>
+                    <ul id="schools-submenu">
+                        <li><a href="http://localhost:3000/templates/elementaryschools.html">Elementary Schools</a></li>
+                        <li><a href="http://localhost:3000/templates/daycares.html">Day Cares</a></li>
+                        <li><a href="http://localhost:3000/templates/preschools.html">Preschools</a></li>
+                    </ul>
+                </div>
+            </div>
+            <ul className="sub-nav-menu">
+                <li className="left-margin">Crafts</li>
+                <li>Recipes</li>
+                <li>Printables</li>
+                <li>Activities</li>
+            </ul>
+            <div className="wrapper">
+                <div id="icon-div"><img className="ham-icon" src="./images/menu48.png"/></div>
+                <div className="ham-menu">
+                    <div>123Parenting</div>
+                    <div id="ham-places-wrapper">
+                        <div id="ham-places-icon">
+                            <p>Places</p>
+                        </div>
+                        <ul id="ham-places-submenu">
+                            <li><a href="http://localhost:3000/templates/apparel&accessories.html">Apparel & Accessories</a></li>
+                        <li><a href="http://localhost:3000/templates/babyshops.html">Baby Shops</a></li>
+                        <li><a href="http://localhost:3000/templates/playareas.html">Play Areas</a></li>
+                        <li><a href="http://localhost:3000/templates/libraries&bookstores.html">Libraries & Book Stores</a></li>
+                        <li><a href="http://localhost:3000/templates/museums.html">Museums</a></li>
+                        <li><a href="http://localhost:3000/templates/amusementparks.html">Amusement Parks</a></li>
+                        </ul>
+                    </div>
+                    <div>Classes</div>
+                    <div id="ham-events-wrapper">
+                        <div id="ham-events-icon">
+                            <p>Events & Camps</p>
+                        </div>
+                        <ul id="ham-events-submenu">
+                            <li><a href="http://localhost:3000/templates/workshops&camps.html">Workshops & Camps</a></li>
+                            <li><a href="http://localhost:3000/templates/sportsevents.html">Sports Events</a></li>
+                            <li><a href="http://localhost:3000/templates/arts&theatre.html">Arts & Theatre</a></li>
+                        </ul>
+                    </div>
+                    <div id="ham-schools-wrapper">
+                        <div id="ham-schools-icon">
+                            <p>Schools</p>
+                        </div>
+                        <ul id="ham-schools-submenu">
+                            <li><a href="http://localhost:3000/templates/elementaryschools.html">Elementary Schools</a></li>
+                        <li><a href="http://localhost:3000/templates/daycares.html">Day Cares</a></li>
+                        <li><a href="http://localhost:3000/templates/preschools.html">Preschools</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+			</div>
+			)
+	}
+}
+
+class UserMenu extends Component {
+	constructor(props){
+		super(props)
+		this.state = { 
+
+		}
+	}
+	render () {
+		return (
+			<div className="subheader">
+            	<ul>
+                	<li className="right-margin">ASK DR. MOM</li>
+                	<li>ACTIVITES</li>
+                	<li>PRINTABLES</li>
+                	<li>RECIPES</li>
+                	<li>CRAFTS</li>
+            	</ul>
+            	<img src="./images/unnamed.png"/>
+        	</div>
+			)
+	}
+}
+
+class HomeBody extends Component {
+	constructor(props){
+		super(props)
+		this.state = { 
+
+		}
+	}
+	render () {
+		return (
+				<div id="wrapper">
+            		<div className="line"></div>
+            		<div className="line"></div>
+            		<div className="rot-banner"><img src="./images/banner5.jpg"/></div>
+            		<div className="group-ad"></div>
+            		<div className="upcoming-data-ticker">
+                	<button><a href="http://localhost:3000/#events">Create Event</a></button>
+            	</div>
+        </div>
+			)
+	}
+}
+
 
 class PostListView extends Component{
 	constructor(props){
@@ -218,21 +373,144 @@ class PostListView extends Component{
 	}
 
 	render(){
-		return(<div className='homescreen'> 
-			<ul> 
-				{this.props.storedPosts.map((model)=> <PostView storedPost={model} />)}
-			</ul>
-		</div>)
+		return(
+			<div className='homescreen'>
+				<ul> 
+					{this.props.storedPosts.map((model)=> <PostView storedPost={model} />)}
+				</ul>
+			</div>)
+	}
+}
+
+class HomeLoginView extends Component {
+	constructor(props){
+		super(props)
+		this.state = { 
+
+		}
+	}
+
+	render () {
+		return (
+				<div>
+				<NavView/>
+				<LoginView />
+				</div>
+			)
+	}
+
+}
+
+class HomeLogoutView extends Component {
+	constructor(props){
+		super(props)
+		this.state = { 
+
+		}
+	}
+	render () {
+		return (
+			<div>
+				<div className="header">
+            <button><img src="./images/magnifying47.png"/></button>
+            <input type="search" placeholder="Search"/>
+            <div className="nav-menu">
+                <div>123Parenting</div>
+                <div id="places-wrapper">
+                    <div id="places-icon">
+                        <p>Places</p>
+                    </div>
+                    <ul id="places-submenu">
+                        <li><a href="http://localhost:3000/templates/apparel&accessories.html">Apparel & Accessories</a></li>
+                        <li><a href="http://localhost:3000/templates/babyshops.html">Baby Shops</a></li>
+                        <li><a href="http://localhost:3000/templates/playareas.html">Play Areas</a></li>
+                        <li><a href="http://localhost:3000/templates/libraries&bookstores.html">Libraries & Book Stores</a></li>
+                        <li><a href="http://localhost:3000/templates/museums.html">Museums</a></li>
+                        <li><a href="http://localhost:3000/templates/amusementparks.html">Amusement Parks</a></li>
+                    </ul>
+                </div>
+                <div>Classes</div>
+                <div id="events-wrapper">
+                    <div id="events-icon">
+                        <p>Events & Camps</p>
+                    </div>
+                    <ul id="events-submenu">
+                        <li><a href="http://localhost:3000/templates/workshops&camps.html">Workshops & Camps</a></li>
+                            <li><a href="http://localhost:3000/templates/sportsevents.html">Sports Events</a></li>
+                            <li><a href="http://localhost:3000/templates/arts&theatre.html">Arts & Theatre</a></li>
+                    </ul>
+                </div>
+                <div id="schools-wrapper">
+                    <div id="schools-icon">
+                        <p>Schools</p>
+                    </div>
+                    <ul id="schools-submenu">
+                        <li><a href="http://localhost:3000/templates/elementaryschools.html">Elementary Schools</a></li>
+                        <li><a href="http://localhost:3000/templates/daycares.html">Day Cares</a></li>
+                        <li><a href="http://localhost:3000/templates/preschools.html">Preschools</a></li>
+                    </ul>
+                </div>
+            </div>
+            <ul className="sub-nav-menu">
+                <li className="left-margin">Crafts</li>
+                <li>Recipes</li>
+                <li>Printables</li>
+                <li>Activities</li>
+            </ul>
+            <div className="wrapper">
+                <div id="icon-div"><img className="ham-icon" src="./images/menu48.png"/></div>
+                <div className="ham-menu">
+                    <div>123Parenting</div>
+                    <div id="ham-places-wrapper">
+                        <div id="ham-places-icon">
+                            <p>Places</p>
+                        </div>
+                        <ul id="ham-places-submenu">
+                            <li><a href="http://localhost:3000/templates/apparel&accessories.html">Apparel & Accessories</a></li>
+                        <li><a href="http://localhost:3000/templates/babyshops.html">Baby Shops</a></li>
+                        <li><a href="http://localhost:3000/templates/playareas.html">Play Areas</a></li>
+                        <li><a href="http://localhost:3000/templates/libraries&bookstores.html">Libraries & Book Stores</a></li>
+                        <li><a href="http://localhost:3000/templates/museums.html">Museums</a></li>
+                        <li><a href="http://localhost:3000/templates/amusementparks.html">Amusement Parks</a></li>
+                        </ul>
+                    </div>
+                    <div>Classes</div>
+                    <div id="ham-events-wrapper">
+                        <div id="ham-events-icon">
+                            <p>Events & Camps</p>
+                        </div>
+                        <ul id="ham-events-submenu">
+                            <li><a href="http://localhost:3000/templates/workshops&camps.html">Workshops & Camps</a></li>
+                            <li><a href="http://localhost:3000/templates/sportsevents.html">Sports Events</a></li>
+                            <li><a href="http://localhost:3000/templates/arts&theatre.html">Arts & Theatre</a></li>
+                        </ul>
+                    </div>
+                    <div id="ham-schools-wrapper">
+                        <div id="ham-schools-icon">
+                            <p>Schools</p>
+                        </div>
+                        <ul id="ham-schools-submenu">
+                            <li><a href="http://localhost:3000/templates/elementaryschools.html">Elementary Schools</a></li>
+                        <li><a href="http://localhost:3000/templates/daycares.html">Day Cares</a></li>
+                        <li><a href="http://localhost:3000/templates/preschools.html">Preschools</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+			</div>)
+
 	}
 }
 
 var ParseRouter = Parse.Router.extend({
 	routes: {
-		'#':'home',
 		'events': 'events',
 		'story': 'story',
 		'login': 'login',
-		'logout': 'logout'
+		'logout': 'logout',
+		'*defaults':'home',
 	}, 
 
 	login: () => {
@@ -240,17 +518,11 @@ var ParseRouter = Parse.Router.extend({
 			window.location.hash = '#events'
 			return
 		}
-		React.render(<LoginView />, qs('.container'))
+		React.render(<HomeLoginView />, qs('.container'))
 	},
 
 	home: () => {
-		if(!Parse.User.current()){
-			window.location.hash = '#login'
-			return
-		}
-		stories.fetch()
-		// React.render(<frontOfCoin />, qs('.container'))
-		React.render(<PostListView storedPosts={stories} />, qs('.container'))
+		React.render(<HomePageView/>, qs('.container'))
 	},
 
 	story: () => {

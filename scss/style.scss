@@ -111,7 +111,7 @@ img {
  */
 
 body {
-    background: linear-gradient(#E6F9F8, #DAF5F4);
+    background-color: #E6F9F8;
 }
 
 .footer {
@@ -179,6 +179,14 @@ body {
         li {
             list-style-type: none;
         }
+         a {
+            float: left;
+            clear: both;
+            text-decoration: none;
+            font-family: Arial;
+            font-size: 15px;
+            color: black;
+        }
     }
 }
 
@@ -204,6 +212,14 @@ body {
         display: none;
         li {
             list-style-type: none;
+        }
+        a {
+            float: left;
+            clear: both;
+            text-decoration: none;
+            font-family: Arial;
+            font-size: 15px;
+            color: black;
         }
     }
 }
@@ -231,11 +247,121 @@ body {
         li {
             list-style-type: none;
         }
+         a {
+            float: left;
+            clear: both;
+            text-decoration: none;
+            font-family: Arial;
+            font-size: 15px;
+            color: black;
+        }
     }
 }
 
 #events-wrapper:hover {
     #events-submenu {
+        display: block;
+    }
+}
+
+#ham-schools-wrapper {
+    #ham-schools-icon {
+        height: 40px;
+        margin-top: 0px;
+        background-color: white;
+        margin: 0px;
+    }
+    #ham-schools-submenu {
+        width: 215px;
+        height: 200px;
+        background-color: white;
+        position: absolute;
+        transform: translate(215px,-58px);
+        display: none;
+        li {
+            list-style-type: none;
+        }
+         a {
+            float: left;
+            clear: both;
+            text-decoration: none;
+            font-family: Arial;
+            font-size: 15px;
+            color: black;
+        }
+    }
+}
+
+#ham-schools-wrapper:hover {
+    #ham-schools-submenu {
+        display: block;
+    }
+}
+
+#ham-places-wrapper {
+    #ham-places-icon {
+        height: 40px;
+        margin-top: 0px;
+        background-color: white;
+        margin: 0px;
+    }
+    #ham-places-submenu {
+        width: 215px;
+        height: 200px;
+        background-color: white;
+        position: absolute;
+        transform: translate(215px,-58px);
+        display: none;
+        li {
+            list-style-type: none;
+        }
+         a {
+            float: left;
+            clear: both;
+            text-decoration: none;
+            font-family: Arial;
+            font-size: 15px;
+            color: black;
+        }
+    }
+}
+
+#ham-places-wrapper:hover {
+    #ham-places-submenu {
+        display: block;
+    }
+}
+
+#ham-events-wrapper {
+    #ham-events-icon {
+        height: 40px;
+        margin-top: 0px;
+        background-color: white;
+        margin: 0px;
+    }
+    #ham-events-submenu {
+        width: 215px;
+        height: 200px;
+        background-color: white;
+        position: absolute;
+        transform: translate(215px,-58px);
+        display: none;
+        li {
+            list-style-type: none;
+        }
+         a {
+            float: left;
+            clear: both;
+            text-decoration: none;
+            font-family: Arial;
+            font-size: 15px;
+            color: black;
+        }
+    }
+}
+
+#ham-events-wrapper:hover {
+    #ham-events-submenu {
         display: block;
     }
 }
@@ -528,3 +654,8 @@ table {
 tr {
     border-bottom: 1px solid #f91a6b;
 }
+
+#button-right {
+    float: right;
+    transform: translate(800px,-45px)
+} 

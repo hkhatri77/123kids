@@ -79,12 +79,9 @@ class NewEvent extends Component {
 			return (<div className ="EnterStory" ref='story'>
 				<form>
 				<h3  ref="title" contentEditable>{this.props.title}</h3>
-				<label for = 'src'> Share a picture with your story. </label>
-				<input type = 'url' name='src' ref='imgsrc' placeholder='Image Url'/> 
-				<input type="text" ref='storyContent' placeholder="Share your story."/>
-				<label for = 'keywords'> Enter 3 story tags. </label>
+				<input type="text" ref='storyContent' placeholder="Event details"/>
 				<input type ='text' name='keywords' ref='keywords' placehloder='Tags' />
-				<label for='isPrivate'> Make Story Private </label>
+				<label for='isPrivate'> Make Event Private </label>
 				<input type = 'checkbox' name='isPrivate' ref='isPrivate'/>
 				<button onClick={(e) => this._publish(e)}> Publish </button>
 				</form>

@@ -15,38 +15,10 @@ class SvgLogin extends Component{
 	}
 }
 
-class SvgBack extends Component{
+
+class LoginInputs extends Component{
 	constructor(props){
 		super(props)
-	}
-
-	render(){
-		return(
-			<span className="back" onClick={() => this.props.rotate()}>
-				<span>Go back</span>
-			</span>
-		)
-	}
-}
-
-class CoinFront extends Component{
-	constructor(props){
-		super(props)
-	}
-	render(){
-		return(
-			<div className="frontOfCoin">
-			</div>
-		)
-	}
-}
-
-class CoinBack extends Component{
-	constructor(props){
-		super(props)
-		// this.state = {
-		// 	error: 0
-		// }
 	}
 
 	_registerUser(e){
@@ -94,8 +66,7 @@ class CoinBack extends Component{
 
 	render(){
 		return(
-			<div className="backOfCoin">
-				<SvgBack {...this.props} />
+			<div>
 				<div className="login">
 					<h4>Login</h4>
 					<form>
@@ -130,17 +101,12 @@ export class LoginView extends Component{
 	constructor(props){
 		super(props)
 		this.state = { 
-			rotated: false
 		}
-	}
-	rotate(){
-		this.setState({rotated: !this.state.rotated})
 	}
 	render(){
 		return(
-			<div className={`rotationContainer ${this.state.rotated ? 'rotated' : ''}`}>
-				<CoinFront rotate={() => this.rotate()} />
-				<CoinBack rotate={() => this.rotate()} />
+			<div>
+				<LoginInputs />
 			</div>
 		)
 	}
