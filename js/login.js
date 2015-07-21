@@ -66,9 +66,9 @@ class LoginInputs extends Component{
 
 	render(){
 		return(
-			<div>
-				<div className="login">
-					<h4>Login</h4>
+			<div className="login-box">
+				<div id="left">
+					<h4>Already a member?</h4>
 					<form>
 						<div>
 							<input type="text" ref="username" placeholder="Enter username"/>
@@ -77,18 +77,18 @@ class LoginInputs extends Component{
 						<button onClick={(e)=> this._signIn(e)}>Sign In</button>
 					</form>
 				</div>
-				<div className="signup">
-					<h4>Sign Up</h4>
+				<div id="right">
+					<h4>Join 123Kids!</h4>
 					<form>
 						<div>
-							<span><input type="text" ref="firstname" placeholder="First Name"/>
-							<input type="text" ref="lastname" placeholder="Last Name"/></span>
+							<input type="text" ref="firstname" placeholder="First Name"/>
+							<input type="text" ref="lastname" placeholder="Last Name"/>
 						</div>
 						<div>
-							<span><input type="email" ref="email" placeholder="Email"/>
-							<input type="text" ref="newUsername" placeholder="Username"/></span>
+							<input type="email" ref="email" placeholder="Email"/>
+							<input type="text" ref="newUsername" placeholder="Username"/>
+							<input type="password" ref="newPassword" placeholder="Password"/>
 						</div>
-						<div><input type="password" ref="newPassword" placeholder="Password"/></div>
 						<button onClick={(e) => this._registerUser(e)}>Sign Up</button>
 					</form>
 				</div>

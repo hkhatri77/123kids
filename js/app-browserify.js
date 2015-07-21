@@ -80,10 +80,10 @@ class NewEvent extends Component {
 			return (<div>
 				<h3  ref="title" contentEditable>{this.props.title}</h3>
 				<label for = 'src'> Share a picture with your story. </label>
-				<input type = 'url' name='src' ref='imgsrc' placeholder='Image Url'/> 
-				<input type="text" ref='storyContent' placeholder="Share your story."/>
-				<label for = 'keywords'> Enter 3 story tags. </label>
+				<input type = 'url' name='src' ref='imgsrc' placeholder='Upload an Image'/> 
+				<input type="text" ref='storyContent' placeholder="Share your Event."/>
 				<input type ='text' name='keywords' ref='keywords' placehloder='Tags' />
+				<input type ='date'/>
 				<label for='isPrivate'> Make Story Private </label>
 				<input type = 'checkbox' name='isPrivate' ref='isPrivate'/>
 				<button onClick={(e) => this._publish(e)}> Publish </button>
@@ -133,19 +133,22 @@ class EventView extends Component {
 		return (<div>
 			<HomeLogoutView />
 			<Toolbar />
+			<UserMenu/>
+
 
 			<div id="new-event">
 			<form onSubmit={(e) => this._NewEvent(e)}> 
-				<label id="new-event-label" for = 'title'> Event Name </label>
-				<input id="new-event-title" type='text' name='title' ref='newTitle' placeholder='New Events'/>
+				<label id="new-event-label" for = 'title'></label>
+				<input id="new-event-title" type='text' name='title' ref='newTitle' placeholder='Add an Event'/>
 				<button id="post-new-event"> + </button>
 			</form>
 
 			</div>
 				<NewEvent newBlogPostModel={this.state.workingModel} title={this.state.title} />
 
-			<h3 id="event-title">User Events</h3>
-             <hr />
+			<h3 id="event-title">Find an Event!</h3>
+			<div className="line"></div>
+        	<div className="line"></div>
 			<ul>
 				{postedEvents.map((model) => <PostView existingStories={model} />)}
 			</ul>
@@ -169,15 +172,13 @@ class PostView extends Component{
 		return (
 			<div className="left_box">
 			<li className="post">
-				<p id="user-name" ref = 'user'> {model.get('author')} </p>
-				<p id="time-stamp">1 day ago</p>
-			    <p ref='timestamp'> {model.get('timestamp')} </p>
-			    <button id="like" ref='recommend'></button>
-				<div id="story-img"><img ref='src' src={model.get('src')}/></div>
-				<h4 id="title" contenteditable ref='title'> {model.get('title')} </h4>
-				<p id="description" contenteditable ref='content'>{model.get('content')}</p>
-				<p id="read-more">Continue reading</p>
-				<p ref='tags'> {model.get('tags')} </p>
+			    <img id="event-img" src="http://ingridwu.dmmdmcfatter.com/wp-content/uploads/2015/01/placeholder.png"/>
+			    <div id="event-content-left">
+					<h4 id="posted-title" contenteditable ref='title'> {model.get('title')} </h4>
+					<p id="user-name" ref = 'user'>  Posted By: {model.get('author')}</p>
+					<p id="description" contenteditable ref='content'>{model.get('content')}</p>
+
+				</div>
 				
 			</li>
 			</div>
@@ -340,15 +341,17 @@ class HomeBody extends Component {
 		}
 	}
 	render () {
-		return (
+		return (<div>
+				<div className="line"></div>
+            		<div className="line"></div>
 				<div id="wrapper">
-            		<div className="line"></div>
-            		<div className="line"></div>
+            		
             		<div className="rot-banner"><img src="./images/banner5.jpg"/></div>
             		<div className="group-ad"></div>
             		<div className="upcoming-data-ticker">
                 	<button><a href="http://localhost:3000/#events">Create Event</a></button>
             	</div>
+        </div>
         </div>
 			)
 	}
