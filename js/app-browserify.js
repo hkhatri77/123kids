@@ -68,6 +68,7 @@ class NewEvent extends Component {
         this.props.newBlogPostModel.set('content', content)
         var keywords = React.findDOMNode(this.refs.keywords).value
        	this.props.newBlogPostModel.set('tags', keywords)
+       	var date = React.findDOMNode(this.refs.date).innerText
 
        	this.props.newBlogPostModel.save()
 	}
@@ -77,16 +78,14 @@ class NewEvent extends Component {
 		if(!this.props.newBlogPostModel){
 			return (<span></span>)
 		} else{
-			return (<div>
+			return (<div className="event-box">
 				<h3  ref="title" contentEditable>{this.props.title}</h3>
-				<label for = 'src'> Share a picture with your story. </label>
+				<label for = 'src'></label>
 				<input type = 'url' name='src' ref='imgsrc' placeholder='Upload an Image'/> 
-				<input type="text" ref='storyContent' placeholder="Share your Event."/>
-				<input type ='text' name='keywords' ref='keywords' placehloder='Tags' />
+				<input type="text" ref='storyContent' placeholder="Event Details"/>
+				<input type ='text' name='keywords' ref='keywords' placeholder='Location' />
 				<input type ='date'/>
-				<label for='isPrivate'> Make Story Private </label>
-				<input type = 'checkbox' name='isPrivate' ref='isPrivate'/>
-				<button onClick={(e) => this._publish(e)}> Publish </button>
+				<button onClick={(e) => this._publish(e)}> Post Event </button>
 			</div>
 			)
 		}
@@ -173,8 +172,9 @@ class PostView extends Component{
 			    <img id="event-img" src="http://ingridwu.dmmdmcfatter.com/wp-content/uploads/2015/01/placeholder.png"/>
 			    <div id="event-content-left">
 					<h4 id="posted-title" contenteditable ref='title'> {model.get('title')} </h4>
+					<p id="date">July 30, 2105</p>
 					<p id="user-name" ref = 'user'>  Posted By: {model.get('author')}</p>
-					<p id="description" contenteditable ref='content'>{model.get('content')}</p>
+					<p id="description" contenteditable ref='content'>Event Details: {model.get('content')}</p>
 
 				</div>
 				
@@ -225,12 +225,12 @@ class NavView extends Component {
                         <p>Places</p>
                     </div>
                     <ul id="places-submenu">
-                        <li><a href="http://localhost:3000/templates/apparel&accessories.html">Apparel & Accessories</a></li>
-                        <li><a href="http://localhost:3000/templates/babyshops.html">Baby Shops</a></li>
-                        <li><a href="http://localhost:3000/templates/playareas.html">Play Areas</a></li>
-                        <li><a href="http://localhost:3000/templates/libraries&bookstores.html">Libraries & Book Stores</a></li>
-                        <li><a href="http://localhost:3000/templates/museums.html">Museums</a></li>
-                        <li><a href="http://localhost:3000/templates/amusementparks.html">Amusement Parks</a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/apparel&accessories.html">Apparel & Accessories <img src="./images/hanger22.png"/></a></li>
+                        <li><a id='first' href="http://localhost:3000/templates/babyshops.html">Baby Shops <img src="./images/baby32.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/playareas.html">Play Areas <img src="./images/park10.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/libraries&bookstores.html">Libraries & Book Stores <img src="./images/books47.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/museums.html">Museums <img src="./images/museum34.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/amusementparks.html">Amusement Parks <img src="./images/entertaining1.png"/></a></li>
                     </ul>
                 </div>
                 <div>Classes</div>
@@ -239,9 +239,9 @@ class NavView extends Component {
                         <p>Events & Camps</p>
                     </div>
                     <ul id="events-submenu">
-                        <li><a href="http://localhost:3000/templates/workshops&camps.html">Workshops & Camps</a></li>
-                            <li><a href="http://localhost:3000/templates/sportsevents.html">Sports Events</a></li>
-                            <li><a href="http://localhost:3000/templates/arts&theatre.html">Arts & Theatre</a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/workshops&camps.html">Workshops & Camps <img src="./images/paintbrush3.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/sportsevents.html">Sports Events <img src="./images/rugbyball.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/arts&theatre.html">Arts & Theatre <img src="./images/comedy3.png"/></a></li>
                     </ul>
                 </div>
                 <div id="schools-wrapper">
@@ -249,9 +249,9 @@ class NavView extends Component {
                         <p>Schools</p>
                     </div>
                     <ul id="schools-submenu">
-                        <li><a href="http://localhost:3000/templates/elementaryschools.html">Elementary Schools</a></li>
-                        <li><a href="http://localhost:3000/templates/daycares.html">Day Cares</a></li>
-                        <li><a href="http://localhost:3000/templates/preschools.html">Preschools</a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/elementaryschools.html">Elementary Schools <img src="./images/school72.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/daycares.html">Day Cares <img src="./images/baby67.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/preschools.html">Preschools <img src="./images/letter19.png"/></a></li>
                     </ul>
                 </div>
             </div>
@@ -270,12 +270,12 @@ class NavView extends Component {
                             <p>Places</p>
                         </div>
                         <ul id="ham-places-submenu">
-                            <li><a href="http://localhost:3000/templates/apparel&accessories.html">Apparel & Accessories</a></li>
-                        <li><a href="http://localhost:3000/templates/babyshops.html">Baby Shops</a></li>
-                        <li><a href="http://localhost:3000/templates/playareas.html">Play Areas</a></li>
-                        <li><a href="http://localhost:3000/templates/libraries&bookstores.html">Libraries & Book Stores</a></li>
-                        <li><a href="http://localhost:3000/templates/museums.html">Museums</a></li>
-                        <li><a href="http://localhost:3000/templates/amusementparks.html">Amusement Parks</a></li>
+                            <li><a id="first" href="http://localhost:3000/templates/apparel&accessories.html">Apparel & Accessories <img src="./images/hanger22.png"/></a></li>
+                        <li><a id='first' href="http://localhost:3000/templates/babyshops.html">Baby Shops <img src="./images/baby32.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/playareas.html">Play Areas <img src="./images/park10.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/libraries&bookstores.html">Libraries & Book Stores <img src="./images/books47.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/museums.html">Museums <img src="./images/museum34.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/amusementparks.html">Amusement Parks <img src="./images/entertaining1.png"/></a></li>
                         </ul>
                     </div>
                     <div>Classes</div>
@@ -284,9 +284,9 @@ class NavView extends Component {
                             <p>Events & Camps</p>
                         </div>
                         <ul id="ham-events-submenu">
-                            <li><a href="http://localhost:3000/templates/workshops&camps.html">Workshops & Camps</a></li>
-                            <li><a href="http://localhost:3000/templates/sportsevents.html">Sports Events</a></li>
-                            <li><a href="http://localhost:3000/templates/arts&theatre.html">Arts & Theatre</a></li>
+                            <li><a id="first" href="http://localhost:3000/templates/workshops&camps.html">Workshops & Camps <img src="./images/paintbrush3.png"/></a></li>
+                            <li><a id="first" href="http://localhost:3000/templates/sportsevents.html">Sports Events <img src="./images/rugbyball.png"/></a></li>
+                            <li><a id="first" href="http://localhost:3000/templates/arts&theatre.html">Arts & Theatre <img src="./images/comedy3.png"/></a></li>
                         </ul>
                     </div>
                     <div id="ham-schools-wrapper">
@@ -294,9 +294,9 @@ class NavView extends Component {
                             <p>Schools</p>
                         </div>
                         <ul id="ham-schools-submenu">
-                            <li><a href="http://localhost:3000/templates/elementaryschools.html">Elementary Schools</a></li>
-                        <li><a href="http://localhost:3000/templates/daycares.html">Day Cares</a></li>
-                        <li><a href="http://localhost:3000/templates/preschools.html">Preschools</a></li>
+                            <li><a id="first" href="http://localhost:3000/templates/elementaryschools.html">Elementary Schools <img src="./images/school72.png"/></a></li>
+                        	<li><a id="first" href="http://localhost:3000/templates/daycares.html">Day Cares <img src="./images/baby67.png"/></a></li>
+                        	<li><a id="first" href="http://localhost:3000/templates/preschools.html">Preschools <img src="./images/letter19.png"/></a></li>
                         </ul>
                     </div>
                 </div>
@@ -422,12 +422,12 @@ class HomeLogoutView extends Component {
                         <p>Places</p>
                     </div>
                     <ul id="places-submenu">
-                        <li><a href="http://localhost:3000/templates/apparel&accessories.html">Apparel & Accessories</a></li>
-                        <li><a href="http://localhost:3000/templates/babyshops.html">Baby Shops</a></li>
-                        <li><a href="http://localhost:3000/templates/playareas.html">Play Areas</a></li>
-                        <li><a href="http://localhost:3000/templates/libraries&bookstores.html">Libraries & Book Stores</a></li>
-                        <li><a href="http://localhost:3000/templates/museums.html">Museums</a></li>
-                        <li><a href="http://localhost:3000/templates/amusementparks.html">Amusement Parks</a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/apparel&accessories.html">Apparel & Accessories <img src="./images/hanger22.png"/></a></li>
+                        <li><a id='first' href="http://localhost:3000/templates/babyshops.html">Baby Shops <img src="./images/baby32.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/playareas.html">Play Areas <img src="./images/park10.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/libraries&bookstores.html">Libraries & Book Stores <img src="./images/books47.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/museums.html">Museums <img src="./images/museum34.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/amusementparks.html">Amusement Parks <img src="./images/entertaining1.png"/></a></li>
                     </ul>
                 </div>
                 <div>Classes</div>
@@ -436,9 +436,9 @@ class HomeLogoutView extends Component {
                         <p>Events & Camps</p>
                     </div>
                     <ul id="events-submenu">
-                        <li><a href="http://localhost:3000/templates/workshops&camps.html">Workshops & Camps</a></li>
-                            <li><a href="http://localhost:3000/templates/sportsevents.html">Sports Events</a></li>
-                            <li><a href="http://localhost:3000/templates/arts&theatre.html">Arts & Theatre</a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/workshops&camps.html">Workshops & Camps <img src="./images/paintbrush3.png"/></a></li>
+                            <li><a id="first" href="http://localhost:3000/templates/sportsevents.html">Sports Events <img src="./images/rugbyball.png"/></a></li>
+                            <li><a id="first" href="http://localhost:3000/templates/arts&theatre.html">Arts & Theatre <img src="./images/comedy3.png"/></a></li>
                     </ul>
                 </div>
                 <div id="schools-wrapper">
@@ -446,9 +446,9 @@ class HomeLogoutView extends Component {
                         <p>Schools</p>
                     </div>
                     <ul id="schools-submenu">
-                        <li><a href="http://localhost:3000/templates/elementaryschools.html">Elementary Schools</a></li>
-                        <li><a href="http://localhost:3000/templates/daycares.html">Day Cares</a></li>
-                        <li><a href="http://localhost:3000/templates/preschools.html">Preschools</a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/elementaryschools.html">Elementary Schools <img src="./images/school72.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/daycares.html">Day Cares <img src="./images/baby67.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/preschools.html">Preschools <img src="./images/letter19.png"/></a></li>
                     </ul>
                 </div>
             </div>
@@ -467,12 +467,12 @@ class HomeLogoutView extends Component {
                             <p>Places</p>
                         </div>
                         <ul id="ham-places-submenu">
-                            <li><a href="http://localhost:3000/templates/apparel&accessories.html">Apparel & Accessories</a></li>
-                        <li><a href="http://localhost:3000/templates/babyshops.html">Baby Shops</a></li>
-                        <li><a href="http://localhost:3000/templates/playareas.html">Play Areas</a></li>
-                        <li><a href="http://localhost:3000/templates/libraries&bookstores.html">Libraries & Book Stores</a></li>
-                        <li><a href="http://localhost:3000/templates/museums.html">Museums</a></li>
-                        <li><a href="http://localhost:3000/templates/amusementparks.html">Amusement Parks</a></li>
+                            <li><a id="first" href="http://localhost:3000/templates/apparel&accessories.html">Apparel & Accessories <img src="./images/hanger22.png"/></a></li>
+                        <li><a id='first' href="http://localhost:3000/templates/babyshops.html">Baby Shops <img src="./images/baby32.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/playareas.html">Play Areas <img src="./images/park10.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/libraries&bookstores.html">Libraries & Book Stores <img src="./images/books47.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/museums.html">Museums <img src="./images/museum34.png"/></a></li>
+                        <li><a id="first" href="http://localhost:3000/templates/amusementparks.html">Amusement Parks <img src="./images/entertaining1.png"/></a></li>
                         </ul>
                     </div>
                     <div>Classes</div>
@@ -481,9 +481,9 @@ class HomeLogoutView extends Component {
                             <p>Events & Camps</p>
                         </div>
                         <ul id="ham-events-submenu">
-                            <li><a href="http://localhost:3000/templates/workshops&camps.html">Workshops & Camps</a></li>
-                            <li><a href="http://localhost:3000/templates/sportsevents.html">Sports Events</a></li>
-                            <li><a href="http://localhost:3000/templates/arts&theatre.html">Arts & Theatre</a></li>
+                            <li><a id="first" href="http://localhost:3000/templates/workshops&camps.html">Workshops & Camps <img src="./images/paintbrush3.png"/></a></li>
+                            <li><a id="first" href="http://localhost:3000/templates/sportsevents.html">Sports Events <img src="./images/rugbyball.png"/></a></li>
+                            <li><a id="first" href="http://localhost:3000/templates/arts&theatre.html">Arts & Theatre <img src="./images/comedy3.png"/></a></li>
                         </ul>
                     </div>
                     <div id="ham-schools-wrapper">
@@ -491,9 +491,9 @@ class HomeLogoutView extends Component {
                             <p>Schools</p>
                         </div>
                         <ul id="ham-schools-submenu">
-                            <li><a href="http://localhost:3000/templates/elementaryschools.html">Elementary Schools</a></li>
-                        <li><a href="http://localhost:3000/templates/daycares.html">Day Cares</a></li>
-                        <li><a href="http://localhost:3000/templates/preschools.html">Preschools</a></li>
+                            <li><a id="first" href="http://localhost:3000/templates/elementaryschools.html">Elementary Schools <img src="./images/school72.png"/></a></li>
+                        	<li><a id="first" href="http://localhost:3000/templates/daycares.html">Day Cares <img src="./images/baby67.png"/></a></li>
+                        	<li><a id="first" href="http://localhost:3000/templates/preschools.html">Preschools <img src="./images/letter19.png"/></a></li>
                         </ul>
                     </div>
                 </div>
