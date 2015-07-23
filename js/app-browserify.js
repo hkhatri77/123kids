@@ -61,14 +61,15 @@ class NewEvent extends Component {
 		var title = React.findDOMNode(this.refs.title).innerText
 		this.props.newBlogPostModel.set('title', title)
 		this.props.newBlogPostModel.set('author', `${currentUser.firstname} ${currentUser.lastname}`)
-		var imgSrc = React.findDOMNode(this.refs.imgsrc).innerHTML
-		this.props.newBlogPostModel.set('src', imgSrc)
-		console.log('publishing !!!!	')
+		var src = React.findDOMNode(this.refs.src).value
+		this.props.newBlogPostModel.set('src', src)
+		console.log('')
 		var content = React.findDOMNode(this.refs.storyContent).value
         this.props.newBlogPostModel.set('content', content)
         var keywords = React.findDOMNode(this.refs.keywords).value
-       	this.props.newBlogPostModel.set('tags', keywords)
-       	var date = React.findDOMNode(this.refs.date).innerText
+       	this.props.newBlogPostModel.set('keywords', keywords)
+       	var location = React.findDOMNode(this.refs.location).value
+       	this.props.newBlogPostModel.set('location', location)
 
        	this.props.newBlogPostModel.save()
 	}
@@ -81,10 +82,10 @@ class NewEvent extends Component {
 			return (<div className="event-box">
 				<h3  ref="title" contentEditable>{this.props.title}</h3>
 				<label for = 'src'></label>
-				<input type = 'url' name='src' ref='imgsrc' placeholder='Upload an Image'/> 
+				<input type = 'url' name='src' ref='src' placeholder='Upload an Image'/> 
 				<input type="text" ref='storyContent' placeholder="Event Details"/>
-				<input type ='text' name='keywords' ref='keywords' placeholder='Location' />
-				<input type ='date'/>
+				<input type ='text' name='' ref='location' placeholder='Location' />
+				<input type ='date' name='keywords' ref='keywords'/>
 				<button onClick={(e) => this._publish(e)}> Post Event </button>
 			</div>
 			)
@@ -169,10 +170,11 @@ class PostView extends Component{
 		return (
 			<div className="left_box">
 			<li className="post">
-			    <img id="event-img" src="http://ingridwu.dmmdmcfatter.com/wp-content/uploads/2015/01/placeholder.png"/>
+			    <div id="event-img"><img contenteditable ref='src' src={model.get('src')}/></div>
 			    <div id="event-content-left">
-					<h4 id="posted-title" contenteditable ref='title'> {model.get('title')} </h4>
-					<p id="date">July 30, 2105</p>
+					<h5 id="posted-title" contenteditable ref='title'> {model.get('title')} </h5>
+					<p id="date" contenteditable ref='keywords'>When: {model.get('keywords')}</p>
+					<p id="date" contenteditable ref='location'>Where: {model.get('location')}</p>
 					<p id="user-name" ref = 'user'>  Posted By: {model.get('author')}</p>
 					<p id="description" contenteditable ref='content'>Event Details: {model.get('content')}</p>
 
@@ -215,7 +217,7 @@ class NavView extends Component {
 		return(
 			<div>
 				<div className="header">
-            <div><a href="http://localhost:3000/#login">login</a></div>
+            <div><button id="login"><a href="http://localhost:3000/#login">login</a></button></div>
             <button><img src="./images/magnifying47.png"/></button>
             <input type="search" placeholder="Search"/>
             <div className="nav-menu">
@@ -345,9 +347,11 @@ class HomeBody extends Component {
 				<div id="wrapper">
             		
             		<div className="rot-banner"><img src="./images/banner5.jpg"/></div>
-            		<div className="group-ad"></div>
+            		<div className="group-ad"><img src=""/></div>
             		<div className="upcoming-data-ticker">
-                	<button><a href="http://localhost:3000/#events">Create Event</a></button>
+                		<div id="udt-left"><p>Be the first to post a 123Kids Event</p></div>
+                <div id="udt-middle"><p>Sign up for fun ear-resistible 123Kids crafts, recipes, and activities soon to be delivered straight to your inbox!</p></div>
+                <div id="udt-right"><p><button><a href="http://localhost:3000/#events">Create Event</a></button></p></div>
             	</div>
         </div>
         </div>

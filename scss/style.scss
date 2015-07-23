@@ -522,6 +522,9 @@ a {
     margin: 1%;
     margin-left: 0;
     margin-top: 15px;
+    background-image: url(http://1.bp.blogspot.com/_bsaUJ4ftdPo/TMCIZvJcthI/AAAAAAAAL5k/782Hx0fqIYI/s1600/circus8.gif);
+    background-size: cover;
+    background-position: center;
 }
 
 .upcoming-data-ticker {
@@ -531,6 +534,68 @@ a {
     border-top: 1px solid #F91A6B;
     border-bottom: 1px solid #F91A6B;
     margin: 10px 6% 0px 6%;
+    #udt-left {
+        float: left;
+        width: 27%;
+        padding: 15px;
+        height: 100%;
+        padding-right: 5px;
+        p {
+            font-family: Arial;
+            text-align: center;
+            border-right: 1px solid #f91a6b;
+            height: 100%;
+            color: #F91A6B;
+            font-size: 20px;
+        }
+    }
+    #udt-right {
+        float: left;
+        width: 27%;
+        padding: 15px;
+        height: 100%;
+        padding-left: 5px;
+        p {
+            border-left: 1px solid #f91a6b;
+            height: 100%;
+            button {
+                float: right;
+                background-color: #FFA04B;
+                border: none;
+                width: 79%;
+                box-shadow: 0px 0px 7px #d4d4d4;
+                height: 41px;
+                border-radius: 3px;
+                margin-top: 15px;
+                margin-right: 5%;
+                a {
+                    text-decoration: none;
+                    margin: auto;
+                    float: none;
+                    font-family: Arial;
+                    color: white;
+                }
+            }
+        }
+    }
+    #udt-middle {
+        float: left;
+        width: 46%;
+        height: 100%;
+        padding: 15px;
+        padding-left: 0px;
+        padding-right: 0px;
+        p {
+            font-family: Arial;
+            text-align: center;
+            border-right: 1px solid #f91a6b;
+            border-left: 1px solid #f91a6b;
+            height: 100%;
+            font-size: 15px;
+            padding: 10px;
+            color: grey;
+        }
+    }
 }
 
 .ham-icon {
@@ -560,18 +625,18 @@ a {
     border-right: 1px solid #d4d4d4;
     transform: translateY(50px);
     div {
-            float: left;
-            clear: both;
-            text-decoration: none;
-            font-family: Arial;
-            font-size: 15px;
-            color: #B7B9B9;
-            padding: 3px;
-            padding-left: 7px;
-            width: 100%;
-            border-bottom: 1px solid #d4d4d4;
-            height: 45px;
-        }
+        float: left;
+        clear: both;
+        text-decoration: none;
+        font-family: Arial;
+        font-size: 15px;
+        color: #B7B9B9;
+        padding: 3px;
+        padding-left: 7px;
+        width: 100%;
+        border-bottom: 1px solid #d4d4d4;
+        height: 45px;
+    }
 }
 
 .wrapper {
@@ -635,7 +700,10 @@ a {
     display: none;
 }
 
-@media only screen and (max-width: 860px) {
+@media only screen and (max-width: 875px) {
+    #login {
+        display: block;
+    }
     .rot-banner {
         float: left;
         width: 100%;
@@ -707,6 +775,8 @@ a {
             transition: 2s
         }
     }
+
+
     .subheader {
         margin-bottom: -60px;
         ul {
@@ -761,22 +831,101 @@ a {
     .subheader img {
         margin-left: 38%;
     }
+
+    .upcoming-data-ticker {
+    float: left;
+    width: 100%;
+    height: 105px;
+    border-top: 1px solid #F91A6B;
+    border-bottom: 1px solid #F91A6B;
+    margin: 10px 6% 0px 6%;
+    #udt-left {
+        float: left;
+        width: 27%;
+        padding: 15px;
+        height: 100%;
+        padding-right: 5px;
+        p {
+            font-family: Arial;
+            text-align: center;
+            border-right: 1px solid #f91a6b;
+            height: 100%;
+            color: #F91A6B;
+            font-size: 13px;
+        }
+    }
+    #udt-right {
+        float: left;
+        width: 27%;
+        padding: 15px;
+        height: 100%;
+        padding-left: 5px;
+        p {
+            border-left: 1px solid #f91a6b;
+            height: 100%;
+            button {
+                float: right;
+                background-color: #FFA04B;
+                border: none;
+                width: 79%;
+                box-shadow: 0px 0px 7px #d4d4d4;
+                height: 41px;
+                border-radius: 3px;
+                margin-top: 15px;
+                margin-right: 5%;
+                a {
+                    text-decoration: none;
+                    margin: auto;
+                    float: none;
+                    font-family: Arial;
+                    color: white;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    #udt-middle {
+
+        p {
+            font-family: Arial;
+            text-align: center;
+            border-right: 1px solid #f91a6b;
+            border-left: 1px solid #f91a6b;
+            height: 100%;
+            font-size: 12px;
+            padding: 2px;
+            color: grey;
+        }
+    }
+}
 }
 
-table {
+
+#mytable {
     width: 88%;
     margin-left: 6%;
     margin-top: 10px;
-}
-
-tr {
-    border-bottom: 1px solid #f91a6b;
+    tbody {
+        tr {
+            border-bottom: 1px solid #f91a6b;
+            td {
+                #busimg {
+                    width: 100px;
+                    height: 100px;
+                    border: 2px solid white;
+                    box-shadow: 0px 0px 2px #B7B9B9;
+                    border-radius: 3px;
+                    margin: 8px;
+                }
+            }
+        }
+    }
 }
 
 .left_box {
     min-width: 300px;
     width: 88%;
-    height: 175px;
+    height: 210px;
     padding: 5px;
     position: relative;
     margin-left: 6%;
@@ -790,10 +939,15 @@ tr {
 }
 
 #event-img {
-    width: 200px;
+    width: 170px;
+    height: 170px;
     float: left;
     border: 2px solid white;
     margin: 10px;
+    background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQjTZhxrYob_9KIIqOlaFkGAJWOnzl7CI7Hamt6EkjrrXEImg8JbxQDQrMr);
+    background-size: cover;
+    background-position: center;
+
 }
 
 #user-img {
@@ -850,9 +1004,9 @@ button,
 
 #button-right {
     float: right;
-    background-color: white;
-    border: 1px solid #d4d4d4;
-    color: #A8A8A8;
+    background-color: #F91A6B;
+    border: 0px;
+    color: white;
     border-radius: 3px;
     height: 30px;
     font-family: Arial;
@@ -918,7 +1072,10 @@ hr {
 #event-content-left {
     float: left;
     margin-top: 20px;
-    #posted-title {}
+    width: 70%;
+    #posted-title {
+        margin-bottom: 3px;
+    }
     #user-name {
         margin-bottom: 2px;
         font-size: 12px;
@@ -929,11 +1086,13 @@ hr {
     }
     #description {
         font-family: Arial;
-        font-size: 16px;
+        font-size: 14px;
         color: grey;
         margin-top: 10px;
         clear: both;
         text-indent: 0px;
+        word-wrap: break-word;
+        float: left;
     }
 }
 
@@ -1043,4 +1202,23 @@ hr {
 #date {
     font-family: Arial;
     font-size: 15px;
+    text-indent: 0px;
+}
+
+#login {
+    float: right;
+    background-color: #F91A6B;
+    border-radius: 3px;
+    height: 28px;
+    width: 50px;
+    font-family: Arial;
+    font-size: 15px;
+    margin-right: 0px;
+    margin-left: -10px;
+    a {
+        float: none;
+        text-decoration: none;
+        color: white;
+        font-family: Arial;
+    }
 }

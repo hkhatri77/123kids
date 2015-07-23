@@ -54,7 +54,10 @@ function startServer() {
         yelp.search({
             term: req.param("term"),
             location: "Houston",
-            sort: "1"
+            sort: "1",
+            is_claimed: "true",
+            image_url: "true"
+
 
         }, function(error, data) {
             console.log(error);

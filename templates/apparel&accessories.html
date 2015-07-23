@@ -124,10 +124,14 @@
         $("#div1").append(tbl);
         for (var i = 0; i < obj.length; i++) {
             var tr = "<tr>";
-            var tdimg = "<td><img style='width:400;height:400' src='" + obj[i]["image_url"] + "'></img></td>";
+            var tdimg = "<td><img id='busimg' src='" + obj[i]["image_url"] + "'></img></td>";
             var td1 = "<td class='test'>" + obj[i]["name"] + "</td>";
             var td2 = "<td><img style='width:400;height:400' src='" + obj[i]["rating_img_url"] + "'></img></td>";
             var td3 = "<td>" + obj[i]["display_phone"] + "</td></tr>";
+
+            $("img").error(function() {
+                $(this).unbind("error").attr("src", "../images/123logo hi resl2.jpg");
+            });
 
             $("#mytable").append(tr + tdimg + td1 + td2 + td3);
 
