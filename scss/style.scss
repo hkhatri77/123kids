@@ -775,8 +775,6 @@ a {
             transition: 2s
         }
     }
-
-
     .subheader {
         margin-bottom: -60px;
         ul {
@@ -831,95 +829,160 @@ a {
     .subheader img {
         margin-left: 38%;
     }
-
     .upcoming-data-ticker {
-    float: left;
-    width: 100%;
-    height: 105px;
-    border-top: 1px solid #F91A6B;
-    border-bottom: 1px solid #F91A6B;
-    margin: 10px 6% 0px 6%;
-    #udt-left {
         float: left;
-        width: 27%;
-        padding: 15px;
-        height: 100%;
-        padding-right: 5px;
-        p {
-            font-family: Arial;
-            text-align: center;
-            border-right: 1px solid #f91a6b;
+        width: 100%;
+        height: 105px;
+        border-top: 1px solid #F91A6B;
+        border-bottom: 1px solid #F91A6B;
+        margin: 10px 6% 0px 6%;
+        #udt-left {
+            float: left;
+            width: 27%;
+            padding: 15px;
             height: 100%;
-            color: #F91A6B;
-            font-size: 13px;
+            padding-right: 5px;
+            p {
+                font-family: Arial;
+                text-align: center;
+                border-right: 1px solid #f91a6b;
+                height: 100%;
+                color: #F91A6B;
+                font-size: 13px;
+            }
         }
-    }
-    #udt-right {
-        float: left;
-        width: 27%;
-        padding: 15px;
-        height: 100%;
-        padding-left: 5px;
-        p {
-            border-left: 1px solid #f91a6b;
+        #udt-right {
+            float: left;
+            width: 27%;
+            padding: 15px;
             height: 100%;
-            button {
-                float: right;
-                background-color: #FFA04B;
-                border: none;
-                width: 79%;
-                box-shadow: 0px 0px 7px #d4d4d4;
-                height: 41px;
-                border-radius: 3px;
-                margin-top: 15px;
-                margin-right: 5%;
-                a {
-                    text-decoration: none;
-                    margin: auto;
-                    float: none;
-                    font-family: Arial;
-                    color: white;
-                    font-size: 12px;
+            padding-left: 5px;
+            p {
+                border-left: 1px solid #f91a6b;
+                height: 100%;
+                button {
+                    float: right;
+                    background-color: #FFA04B;
+                    border: none;
+                    width: 79%;
+                    box-shadow: 0px 0px 7px #d4d4d4;
+                    height: 41px;
+                    border-radius: 3px;
+                    margin-top: 15px;
+                    margin-right: 5%;
+                    a {
+                        text-decoration: none;
+                        margin: auto;
+                        float: none;
+                        font-family: Arial;
+                        color: white;
+                        font-size: 12px;
+                    }
                 }
             }
         }
-    }
-    #udt-middle {
-
-        p {
-            font-family: Arial;
-            text-align: center;
-            border-right: 1px solid #f91a6b;
-            border-left: 1px solid #f91a6b;
-            height: 100%;
-            font-size: 12px;
-            padding: 2px;
-            color: grey;
+        #udt-middle {
+            p {
+                font-family: Arial;
+                text-align: center;
+                border-right: 1px solid #f91a6b;
+                border-left: 1px solid #f91a6b;
+                height: 100%;
+                font-size: 12px;
+                padding: 2px;
+                color: grey;
+            }
         }
     }
 }
-}
-
 
 #mytable {
     width: 88%;
     margin-left: 6%;
     margin-top: 10px;
-    tbody {
-        tr {
-            border-bottom: 1px solid #f91a6b;
-            td {
-                #busimg {
-                    width: 100px;
-                    height: 100px;
-                    border: 2px solid white;
-                    box-shadow: 0px 0px 2px #B7B9B9;
-                    border-radius: 3px;
-                    margin: 8px;
-                }
-            }
+    ul {
+        list-style-type: none;
+    }
+    #firstul {
+        float: left;
+        clear: both;
+        margin: 0px;
+    }
+    #secondul {
+        float: left;
+        padding: 12px;
+        margin: 0px;
+        margin-top: 5px;
+        #lithird {
+            font-family: Arial;
+            font-size: 14px;
+            margin-top: -10px;
+            color: #686868;
+        }
+        #linew {
+            margin-top: -23px;
+            margin-left: 16px;
+            font-family: Arial;
+            font-size: 14px;
+            color: #686868;
+        }
+        #lione {
+            font-family: Arial;
+            font-size: 18px;
+            margin-top: -2px;
+            font-weight: bold;
+            color: #686868;
         }
     }
+    #thirdul {
+        border-bottom: 1px solid #f91a6b;
+        clear: both;
+        margin: 0px;
+        padding-bottom: 24px;
+        margin-bottom: 10px;
+        #lififth {
+            float: left;
+            width: 40px;
+            height: 40px;
+            margin-left: 11px;
+            border: 2px solid white;
+            border-radius: 3px;
+            box-shadow: 0px 0px 5px #d4d4d4;
+        }
+        #lisixth {
+            transform: translateY(-4px);
+            margin-left: 68px;
+            color: #545454;
+            font-family: Arial;
+            font-size: 15px;
+        }
+    }
+    #fourthul {
+        float: right;
+        margin: 12px;
+        margin-right: 30px;
+        font-family: Arial;
+        font-size: 16px;
+        padding: 0px;
+        #liloc {
+            margin-left: 10px;
+            font-size: 17px;
+            color: #686868;
+        }
+        #lifourth {
+            font-size: 14px;
+            color: #F91A6B;
+        }
+    }
+}
+
+#busimg {
+    width: 90px;
+    height: 90px;
+    border: 2px solid white;
+    box-shadow: 0px 0px 2px #B7B9B9;
+    border-radius: 3px;
+    margin: 8px;
 }
 
 .left_box {
@@ -947,7 +1010,6 @@ a {
     background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQjTZhxrYob_9KIIqOlaFkGAJWOnzl7CI7Hamt6EkjrrXEImg8JbxQDQrMr);
     background-size: cover;
     background-position: center;
-
 }
 
 #user-img {
